@@ -1,0 +1,1166 @@
+/* ==========================================================================
+   CONFIGURAÇÕES GERAIS E PALETA DE CORES (IDÊNTICA AO LAYOUT)
+   ========================================================================== */
+:root {
+    --bg-main: #070707;          /* Fundo preto predominante */
+    --bg-card-dark: #111111;     /* Blocos e cartões escuros */
+    --gold: #E1B152;             /* O tom de dourado exato da Lion Company */
+    --gold-hover: #c99c43;       /* Dourado para efeitos de hover */
+    --text-white: #ffffff;       /* Texto principal claro */
+    --text-gray: #8A8A8A;        /* Texto secundário cinza */
+    --border-dark: #1C1C1C;      /* Linhas divisórias sutis */
+    
+    /* Configurações para as Seções de Fundo Branco */
+    --bg-white: #FFFFFF;
+    --text-dark: #111111;
+    --text-muted-dark: #555555;
+    --border-light: #EBEBEB;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-white);
+    overflow-x: hidden;
+    position: relative;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* MARCA D'ÁGUA DA SUA LOGO NO TOPO DIREITO */
+.hero-bg-watermark {
+    position: absolute;
+    top: -165px; /* <--- VALOR NEGATIVO: Ajuste aqui para subir mais (ex: -180px, -200px) */
+    right: -50px; /* Desloca levemente para a direita para encaixar como no design */
+    width: 40px; /* Ajuste sutil na largura para equilibrar o tamanho */
+    width: 50%; /* Ocupa o lado direito da tela */
+    height: 900px;
+    overflow: hidden;
+    z-index: 1; /* Fica atrás de textos e do notebook */
+    pointer-events: none;
+}
+
+.hero-bg-watermark img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: top right;
+    opacity: 0.18; /* Tom de opacidade calibrado para não brigar com o texto */
+}
+
+
+/* ==========================================================================
+   CABEÇALHO (HEADER)
+   ========================================================================== */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 8%;
+    background-color: transparent; /* Transparente para o leão de fundo aparecer */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(28, 28, 28, 0.5);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo-img {
+    height: 55px;
+    width: auto;
+    object-fit: contain;
+}
+
+.logo-text {
+    font-size: 20px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    line-height: 1.1;
+}
+
+.logo-text span {
+    display: block;
+    font-size: 11px;
+    color: var(--text-gray);
+    font-weight: 500;
+    margin-top: 2px;
+}
+
+.nav a {
+    margin: 0 18px;
+    font-size: 14px;
+    color: var(--text-gray);
+    transition: color 0.3s;
+}
+
+.nav a:hover {
+    color: var(--text-white);
+}
+
+.btn-cta-header {
+    border: 1px solid var(--gold);
+    padding: 10px 22px;
+    border-radius: 4px;
+    font-size: 13px;
+    color: var(--gold);
+    font-weight: 700;
+    transition: 0.3s;
+}
+
+.btn-cta-header:hover {
+    background-color: var(--gold);
+    color: var(--bg-main);
+}
+
+/* ==========================================================================
+   SEÇÃO HERO (INÍCIO - AJUSTE REFINADO DO LAYOUT)
+   ========================================================================== */
+.hero-section {
+    padding: 60px 8% 40px 8%;
+    border-bottom: 1px solid var(--border-dark);
+    position: relative;
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+}
+
+.hero-main-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0px; /* Remove o espaçamento forçado entre as colunas */
+    width: 100%;
+}
+
+.hero-content {
+    flex: 1.2; /* Dá prioridade ao bloco de texto */
+    max-width: 550px;
+    position: relative;
+    z-index: 10; /* Mantém o texto visível sobre a imagem se houver toque */
+}
+
+.tagline {
+    color: var(--gold);
+    font-size: 11px;
+    letter-spacing: 3px;
+    font-weight: 700;
+    display: block;
+    margin-bottom: 25px;
+}
+
+/* Título ajustado com largura limite para quebrar igual ao layout */
+.hero-content h1 {
+    font-size: 52px;
+    line-height: 1.15;
+    font-weight: 800;
+    margin-bottom: 25px;
+    letter-spacing: -1px;
+    color: var(--text-white);
+    max-width: 480px; 
+}
+
+/* Força as palavras específicas a ficarem douradas */
+.text-gold {
+    color: var(--gold) !important;
+    display: inline;
+}
+
+.hero-content p {
+    color: var(--text-gray);
+    font-size: 16px;
+    margin-bottom: 45px;
+    max-width: 480px;
+    line-height: 1.6;
+}
+
+.mockup-main-img {
+    width: 145%; 
+    max-width: 950px;
+    height: auto;
+    object-fit: contain;
+    
+    /* Configurações de posicionamento avançadas */
+    position: relative;
+    z-index: 999 !important; /* Força o notebook a ficar na frente de qualquer linha ou fundo */
+    mix-blend-mode: lighten;
+    filter: brightness(1.05) contrast(1.05) drop-shadow(-20px 40px 60px rgba(0,0,0,0.95));
+    
+    /* Deslocamento vertical exato para invadir a seção branca */
+    transform: translateY(120px) translateX(-100px);
+
+}
+
+
+
+/* BOTÕES LADO A LADO DO HERO */
+.hero-buttons {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.btn-gold-fill {
+    background-color: var(--gold);
+    color: var(--bg-main);
+    padding: 15px 36px;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.btn-gold-fill:hover {
+    background-color: var(--gold-hover);
+    transform: translateY(-2px);
+}
+
+/* 👇 ALTERADO: Adicionado borda dourada e preenchimento igual ao layout */
+.btn-hero-talk {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--gold-hover);
+    font-weight: 700;
+    font-size: 14px;
+    border: 1px solid var(--gold); /* Borda dourada adicionada */
+    padding: 14px 32px; /* Ajuste para o tamanho casar com o botão ao lado */
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    background-color: transparent;
+}
+
+/* 👇 ALTERADO: Removemos o círculo antigo para o ícone flutuar limpo dentro do botão */
+.talk-icon-circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gold);
+    font-size: 14px;
+    background-color: transparent;
+    transition: all 0.3s ease;
+}
+
+/* Efeito hover atualizado para o botão inteiro subir e brilhar de leve */
+.btn-hero-talk:hover {
+    background-color: rgba(225, 177, 82, 0.1);
+    border-color: var(--gold-hover);
+    transform: translateY(-2px);
+}
+
+/* LINHA DE BADGES - EXATAMENTE IGUAL AO DESIGN ORIGINAL */
+.hero-badges-row {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 45px;
+    width: 100%;
+    padding-top: 20px;
+}
+
+.hero-badges-row span {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+    color: var(--text-gray);
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+}
+
+.hero-badges-row i {
+    color: var(--gold);
+    font-size: 14px;
+}
+
+/* RESPONSIVIDADE ADAPTADA */
+@media (max-width: 1200px) {
+    .hero-content h1 { font-size: 44px; }
+    .hero-badges-row { gap: 25px; flex-wrap: wrap; }
+}
+
+@media (max-width: 992px) {
+    .hero-main-container { flex-direction: column; text-align: center; }
+    .hero-content { max-width: 100%; display: flex; flex-direction: column; align-items: center; }
+    .hero-content p { max-width: 100%; }
+    .hero-buttons { justify-content: center; }
+    .hero-mockups-container { width: 100%; justify-content: center; margin-left: 0; margin-top: 20px; }
+    .mockup-main-img { width: 100%; transform: none; }
+    .hero-badges-row { justify-content: center; gap: 20px; }
+}
+/* ==========================================================================
+   SEÇÕES DE SEGUNDO PLANO BRANCO (SERVIÇOS)
+   ========================================================================== */
+.services-white-section {
+    background-color: var(--bg-white) !important;
+    color: var(--text-dark) !important;
+    padding: 100px 8% !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+    margin: 0 !important;
+    border: none !important;
+}
+
+.section-tag-dark {
+    color: var(--gold);
+    font-size: 11px;
+    letter-spacing: 2px;
+    font-weight: 700;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.services-white-section h2 {
+    font-size: 34px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    margin-bottom: 60px;
+    max-width: 600px;
+    color: var(--text-dark) !important;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 40px;
+}
+
+.service-card {
+    background-color: var(--bg-white);
+    padding: 10px 5px;
+}
+
+.insignia {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 25px;
+    background-color: transparent;
+    width: auto;
+    height: auto;
+    border: none;
+    border-radius: 0;
+}
+
+.insignia i {
+    font-family: "Font Awesome 6 Free" !important;
+    font-weight: 900 !important;
+    font-size: 26px !important; 
+    color: var(--gold) !important; 
+    display: inline-block !important;
+}
+
+.service-card h3 {
+    font-size: 19px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: var(--text-dark); 
+}
+
+.service-card p {
+    color: var(--text-muted-dark);
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.learn-more-dark {
+    color: var(--gold) !important; 
+    font-size: 13px;
+    font-weight: 700;
+    transition: color 0.2s ease;
+}
+
+.learn-more-dark:hover {
+    color: var(--gold-hover) !important;
+}
+
+/* ==========================================================================
+   FAIXA DE VENDAS & SISTEMAS: AJUSTE DE PROPORÇÃO ESPACIAL
+   ========================================================================== */
+.split-section {
+    background-color: var(--bg-main);
+    width: 100%;
+    padding: 60px 4%; 
+    border-top: 1px solid var(--border-dark);
+}
+
+.split-container {
+    display: grid;
+    /* Define duas colunas fixas proporcionais */
+    grid-template-columns: 1fr 1.3fr; 
+    max-width: 1600px; 
+    margin: 0 auto;
+    position: relative; /* Permite que a linha divisória encontre o centro real */
+}
+
+/* 👇 CORRIGIDO: Força a linha a se posicionar no centro exato da tela de forma independente */
+.split-container::after {
+    content: "";
+    position: absolute;
+    top: 20px;
+    bottom: 20px;
+    left: 43.5%; /* Fixa a linha exatamente na junção do grid 1fr / 1.3fr */
+    width: 1px;
+    background-color: rgba(225, 177, 82, 0.15); /* Cor dourada sutil */
+    z-index: 10;
+}
+
+/* ==========================================================================
+   COLUNA DA ESQUERDA (VENDAS) - TEXTOS VISÍVEIS E ALINHAMENTO LATERAL
+   ========================================================================== */
+.col-vendas {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr; 
+    gap: 30px;
+    align-items: center; 
+    position: relative;
+    padding-bottom: 70px; 
+    
+    /* 👇 ADICIONADO: Empurra o conteúdo para a esquerda criando o espaço vazio */
+    margin-right: 40px; 
+}
+
+.vendas-text-block {
+    grid-column: 1;
+}
+
+/* Título de Vendas Forçado em Branco */
+.col-vendas h2,
+.split-section h2 {
+    color: #FFFFFF !important;
+    font-size: 34px;
+    font-weight: 800;
+    line-height: 1.25;
+    margin-bottom: 20px;
+    letter-spacing: -1px;
+}
+
+/* Parágrafo de Vendas Forçado em Cinza Claro */
+.vendas-text-block p {
+    color: #A0A0A0 !important;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.col-vendas .products-showcase-img {
+    grid-column: 2;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 0; 
+}
+
+.col-vendas .sales-products-img {
+    max-width: 100%; 
+    height: auto;
+    object-fit: contain;
+    border-radius: 12px; /* Quinas arredondadas nos produtos */
+}
+
+/* Selos na Base com Alto Contraste */
+.mini-badges {
+    grid-column: span 2; 
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    border-top: 1px solid var(--border-dark);
+    padding-top: 25px;
+    width: 100%;
+}
+
+.mini-badges span {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    color: #A0A0A0 !important;
+    white-space: nowrap;
+}
+
+.mini-badges i {
+    color: var(--gold);
+}
+
+
+/* ==========================================================================
+   COLUNA DA DIREITA (SISTEMAS) - TEXTOS VISÍVEIS E ALINHAMENTO LATERAL
+   ========================================================================== */
+.col-sistemas {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 30px;
+    align-items: flex-start;
+    
+    /* 👇 ADICIONADO: Empurra o conteúdo para a direita criando o espaço vazio */
+    margin-left: 40px; 
+}
+
+/* Bloco do Título de Sistemas */
+.sistemas-text-block {
+    grid-column: 1;
+    grid-row: 1;
+    margin-bottom: 15px;
+}
+
+/* Força o Título de Sistemas a ficar Branco */
+.col-sistemas h2 {
+    color: #FFFFFF !important;
+    font-size: 34px;
+    font-weight: 800;
+    line-height: 1.25;
+    margin-bottom: 20px;
+    letter-spacing: -1px;
+}
+
+/* Força as Tags pequeninas (VENDAS / SISTEMAS) a ficarem Douradas */
+.col-vendas .section-tag,
+.col-sistemas .section-tag {
+    color: var(--gold) !important;
+    font-size: 11px;
+    letter-spacing: 3px;
+    font-weight: 700;
+    display: block;
+    margin-bottom: 15px;
+}
+
+/* Grid de Cards de Sistema */
+.systems-horizontal-grid {
+    grid-column: 1;
+    grid-row: 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+/* Cards LION FINANCE e LION SALES com quinas arredondadas */
+.system-box {
+    background-color: #111111; 
+    border: 1px solid var(--border-dark);
+    border-radius: 12px; /* Suas quinas perfeitamente arredondadas */
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.system-box:hover {
+    transform: translateY(-3px);
+    border-color: rgba(225, 177, 82, 0.3);
+}
+
+.system-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.insignia-gold {
+    color: var(--gold);
+    font-size: 16px;
+    background-color: rgba(225, 177, 82, 0.1);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+/* Força os Nomes dos Sistemas a ficarem Brancos */
+.system-box h3 {
+    color: #FFFFFF !important;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+/* Força a Descrição dos Sistemas a ficar em Cinza Claro */
+.system-box p {
+    color: #A0A0A0 !important;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.learn-more {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--gold);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: auto;
+}
+
+/* Imagem do Painel na Lateral Direita Extrema */
+.col-sistemas .systems-showcase-img {
+    grid-column: 2;
+    grid-row: 1 / span 2; 
+    width: 100%;
+    margin-top: 0;
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+}
+
+/* Arredondamento do Mockup do Dashboard */
+.systems-mockup-img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 12px; /* Arredonda as quinas da imagem do dashboard */
+}
+
+/* ==========================================================================
+   RESPONSIVIDADE ADAPTADA
+   ========================================================================== */
+@media (max-width: 1024px) {
+    .split-container::after {
+        display: none;
+    }
+    .split-container {
+        grid-template-columns: 1fr;
+        gap: 60px;
+    }
+    .col-vendas, .col-sistemas {
+        grid-template-columns: 1fr;
+        /* 👇 ADICIONADO: Remove os espaçamentos laterais em telas pequenas */
+        margin-left: 0;
+        margin-right: 0;
+    
+}
+    .col-vendas .products-showcase-img,
+    .col-sistemas .systems-showcase-img {
+        grid-column: 1;
+    }
+    .mini-badges {
+        grid-column: 1;
+        position: static;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    .systems-horizontal-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+}
+
+/* ==========================================================================
+   SEÇÃO PROJETOS EM DESTAQUE: FUNDO BRANCO E ALINHAMENTO HORIZONTAL
+   ========================================================================== */
+.projects-white-section {
+    background-color: #FFFFFF !important; /* 👇 CORRIGIDO: Fundo totalmente branco */
+    color: #111111 !important;           /* 👇 CORRIGIDO: Textos escuros */
+    padding: 80px 4%;
+    width: 100%;
+}
+
+.projects-container {
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+/* Distribuição horizontal do topo (Título, Subtítulo e Link) */
+.projects-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 50px;
+    gap: 30px;
+    width: 100%;
+}
+
+.projects-title-left {
+    flex: 1;
+}
+
+.projects-tag-dark {
+    color: #555555 !important;
+    font-size: 11px;
+    letter-spacing: 3px;
+    font-weight: 700;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.projects-title-left h2 {
+    color: #111111 !important; /* Título em preto */
+    font-size: 34px;
+    font-weight: 800;
+    line-height: 1.25;
+    letter-spacing: -1px;
+}
+
+.projects-subtitle-center {
+    flex: 1.2;
+    max-width: 500px;
+    padding-bottom: 5px;
+}
+
+.projects-subtitle-center p {
+    color: #555555 !important; /* Texto de apoio em cinza escuro */
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.projects-action-right {
+    flex: 0.8;
+    display: flex;
+    justify-content: flex-end;
+    padding-bottom: 5px;
+}
+
+/* Link estilizado para fundo claro */
+.view-all-link-dark {
+    color: #111111;
+    font-size: 13px;
+    font-weight: 700;
+    white-space: nowrap;
+    border: 1px solid #EBEBEB;
+    padding: 10px 20px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.view-all-link-dark:hover {
+    background-color: #F5F5F5;
+    border-color: #111111;
+}
+
+/* GRADE DE CARDS TOTALMENTE HORIZONTAL (4 COLUNAS) */
+.projects-horizontal-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Força os 4 cards lado a lado */
+    gap: 25px;
+    width: 100%;
+}
+
+/* Estilização limpa dos cards combinando com o fundo branco */
+.project-item {
+    background-color: #FFFFFF;
+    border: 1px solid #EBEBEB; /* Borda sutil clara */
+    border-radius: 12px;       /* Quinas arredondadas */
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); /* Sombra leve em vez de borda dourada */
+}
+
+/* Ajuste das miniaturas das imagens */
+.project-thumb {
+    width: 100%;
+    height: 180px;
+    overflow: hidden;
+    background-color: #F5F5F5;
+}
+
+.project-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Organização dos textos internos dos cartões */
+.project-info {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex-grow: 1;
+}
+
+.project-info h3 {
+    color: #111111 !important; /* Título do card em preto */
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.project-info p {
+    color: #555555 !important; /* Descrição do card em cinza escuro */
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+/* Tags internas de categoria */
+.project-tag-internal,
+.project-category-tag {
+    color: #8A8A8A;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: auto;
+    padding-top: 5px;
+}
+
+/* ==========================================================================
+   RESPONSIVIDADE ADAPTADA PARA O PORTFÓLIO
+   ========================================================================== */
+@media (max-width: 1100px) {
+    .projects-horizontal-grid {
+        grid-template-columns: repeat(2, 1fr); /* Quebra em 2 colunas no tablet */
+    }
+    .projects-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    .projects-action-right {
+        justify-content: flex-start;
+    }
+}
+
+@media (max-width: 650px) {
+    .projects-horizontal-grid {
+        grid-template-columns: 1fr; /* Coluna única no celular */
+    }
+}
+/* ==========================================================================
+   CONFIGURAÇÃO GERAL (FUNDO PRETO ABSOLUTO DE PONTA A PONTA)
+   ========================================================================== */
+.why-choose-section,
+.main-footer {
+    background-color: #000000 !important; /* Remove qualquer tom cinza de fundo */
+    width: 100%;
+    margin: 0 !important;
+    border: none !important;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif; /* Alinha com a fonte moderna do layout */
+}
+
+/* ==========================================================================
+   SEÇÃO POR QUE ESCOLHER A LION COMPANY
+   ========================================================================== */
+.why-choose-section {
+    padding-top: 20px !important;    /* 👇 Deixe menor (20px) */
+    padding-bottom: 0px !important;  /* 👇 Mude para zero para colar no rodapé */
+    margin-bottom: 0 !important;     /* ➕ Adicione esta linha manual */
+}
+
+
+
+.why-choose-section .container-inner {
+    max-width: 1440px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 5px; /* Espaço exato entre título e os cards */
+}
+
+.why-title-block {
+    text-align: left;
+}
+
+.section-tag-gold {
+    color: #E1B152 !important; 
+    font-size: 11px;
+    letter-spacing: 2px;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.title-left {
+    color: #FFFFFF !important; /* Branco puro total */
+    opacity: 1 !important;     /* ➕ ADICIONE ESTA LINHA: Garante brilho 100% sem efeito apagado */
+    font-size: 38px; 
+    font-weight: 800;
+    letter-spacing: -1px;
+    margin: 0;
+}
+
+
+/* Grid perfeitamente esmagado na horizontal */
+.benefits-horizontal-row {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr); 
+    gap: 20px; /* Reduzido o espaço para as frases não quebrarem muitas linhas */
+    width: 100%;
+}
+
+.benefit-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px !important; /* 👇 Mude de 12px para 4px para esmagar o card */
+}
+
+
+.benefit-header {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Ícone colado no texto como no print */
+}
+
+.benefit-icon-circle {
+    color: #E1B152 !important; 
+    font-size: 20px;
+    display: inline-flex;
+}
+
+.benefit-item h3 {
+    color: #FFFFFF !important; 
+    font-size: 16px; /* Diminuído ligeiramente para caber em uma linha */
+    font-weight: 700;
+    margin: 0;
+    white-space: nowrap; /* Impede que o título do card quebre em duas linhas */
+}
+
+/* 👇 CORRIGIDO: Tamanho e espaçamento das frases dos cards */
+.benefit-item p {
+    color: #888888 !important; /* Cinza idêntico ao do print */
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 0;
+    font-weight: 400;
+    max-width: 220px; /* Controla para que o texto não espalhe ou fique quadrado */
+}
+
+/* ==========================================================================
+   RODAPÉ FINAL COMPLETO
+   ========================================================================== */
+.main-footer {
+    padding: 20px 6% 30px 6% !important; /* 👇 Altere o primeiro número de 80px para 20px */
+    position: relative; 
+    overflow: hidden; 
+    margin-top: 0 !important;            /* ➕ Adicione esta linha manual */
+}
+
+/* Alinhamento perfeito em 3 colunas horizontais */
+.footer-container {
+    max-width: 1440px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1.5fr 1fr; /* Central maior para acomodar a frase do CTA */
+    gap: 60px;
+    align-items: flex-start;
+    position: relative;
+    z-index: 2; /* Mantém os textos acima do escudo dourado */
+}
+
+/* --- COLUNA ESQUERDA: LOGO E DESCRIÇÃO --- */
+.footer-block-left {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.footer-block-left .logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-img {
+    width: 45px; /* Tamanho ajustado do escudo esquerdo */
+    height: auto;
+}
+
+/* 👇 CORRIGIDO: LION COMPANY em uma única linha com alinhamento na base */
+.footer-block-left .logo-text {
+    color: #FFFFFF !important; 
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    line-height: 1;
+    display: flex;
+    align-items: baseline; 
+    gap: 8px;
+    margin: 0;
+}
+
+.footer-block-left .logo-text span {
+    color: #E1B152 !important; 
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+
+/* 👇 CORRIGIDO: Posição e tamanho da frase abaixo do logo */
+.footer-desc {
+    color: #777777 !important; 
+    font-size: 15px;
+    line-height: 1.5;
+    margin: 0;
+    font-weight: 400;
+}
+
+.footer-socials {
+    display: flex;
+    gap: 16px;
+    margin-top: 5px;
+}
+
+.footer-socials a {
+    color: #FFFFFF !important; 
+    font-size: 15px;
+    transition: opacity 0.2s;
+    opacity: 0.8;
+}
+
+.footer-socials a:hover {
+    opacity: 1;
+    color: #E1B152 !important;
+}
+
+/* --- COLUNA CENTRAL: CHAMADA DE CONVERSÃO (CTA) --- */
+.footer-block-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* 👇 CORRIGIDO: Posição e quebra da frase central */
+.footer-block-center h2 {
+    color: #FFFFFF !important; 
+    font-size: 32px;
+    font-weight: 800;
+    line-height: 1.2;
+    margin: 0 0 12px 0;
+    letter-spacing: -0.5px;
+}
+
+/* 👇 CORRIGIDO: Frase descritiva do centro */
+.footer-block-center p {
+    color: #777777 !important; 
+    font-size: 15px;
+    line-height: 1.5;
+    margin: 0 0 25px 0;
+    max-width: 420px; /* Força o texto a quebrar igual ao mockup */
+}
+
+/* Botão retangular idêntico */
+.btn-footer-whatsapp {
+    background-color: #E1B152 !important; 
+    color: #000000 !important;
+    font-weight: 700;
+    font-size: 13px;
+    padding: 12px 28px;
+    border-radius: 4px; /* Botão corporativo reto */
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.btn-footer-whatsapp .footer-icon-circle i {
+    font-size: 14px;
+}
+
+/* --- COLUNA DIREITA: INFORMAÇÕES DE CONTATO --- */
+/* 👇 CORRIGIDO: Posição do título "Contato" */
+.footer-block-right h3 {
+    color: #FFFFFF !important; 
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0 0 20px 0;
+}
+
+.footer-contact-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px; /* Espaço exato entre as linhas de contato */
+}
+
+.footer-contact-list li {
+    color: #888888 !important; 
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.footer-contact-list li i {
+    color: #E1B152 !important;
+    font-size: 16px;
+    width: 16px; /* Alinha verticalmente os ícones */
+}
+
+/* Faixa de copyright */
+.footer-bottom {
+    max-width: 1440px;
+    margin: 80px auto 0 auto;
+    border-top: 1px solid #111111;
+    padding-top: 20px;
+    text-align: center;
+}
+
+.footer-bottom p {
+    color: #444444 !important;
+    font-size: 11px;
+}
+
+/* ==========================================================================
+   👇 CORRIGIDO: POSICIONAMENTO E CORES DA MARCA D'ÁGUA (ESCUDO GIGANTE)
+   ========================================================================== */
+.footer-watermark {
+    position: absolute;
+    right: -100px;      /* Puxa mais para a direita para emular o corte do print */
+    bottom: -90px;      /* Corta a base inferior */
+    width: 480px;       /* Tamanho massivo igual ao escudo dourado do print */
+    height: auto;
+    pointer-events: none; 
+    z-index: 1;         
+    opacity: 0.18;      /* Opacidade regulada para não sumir contra o preto */
+}
+
+.footer-watermark img {
+    width: 100%;
+    height: auto;
+    display: block;
+    /* Filtro avançado para forçar a imagem a virar um contorno dourado brilhante sutil */
+    filter: sepia(1) saturate(1.8) brightness(0.7) contrast(1.1);
+}
+
+/* ==========================================================================
+   RESPONSIVIDADE (Preserva o layout horizontal o máximo possível)
+   ========================================================================== */
+@media (max-width: 1400px) {
+    .benefits-horizontal-row { grid-template-columns: repeat(3, 1fr); gap: 24px; }
+}
+@media (max-width: 950px) {
+    .benefits-horizontal-row { grid-template-columns: repeat(2, 1fr); }
+    .footer-container { grid-template-columns: 1fr; text-align: center; gap: 40px; }
+    .footer-block-right .footer-contact-list { align-items: center; }
+    .footer-block-left .logo { justify-content: center; }
+    .footer-watermark { width: 300px; right: -50px; bottom: -50px; }
+}
+@media (max-width: 550px) {
+    .benefits-horizontal-row { grid-template-columns: 1fr; }
+}
